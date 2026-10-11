@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>NEXORA MOTORS | Luxury Redefined</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #080808;
+      --panel: #111;
+      --gold: #d4af63;
+      --white: #fff;
+      --muted: #aaa;
+      --border: rgba(212, 175, 99, .25);
+      --width: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+      overflow-x: clip;
+    }
+
+    body {
+      width: 100%;
+      min-width: 320px;
+      overflow-x: clip;
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.7;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(var(--width), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    section {
+      padding: 100px 0;
+      scroll-margin-top: 80px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.15;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 500;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .section-heading .eyebrow {
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      margin-top: 15px;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 24px;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: #080808;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-align: center;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255, 255, 255, .45);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, .96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(15px);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 78px;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 12px;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 43px;
+      height: 43px;
+      border: 1px solid var(--border);
+      background: #080808;
+      color: var(--gold);
+      font-size: 25px;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 720px;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, .92), rgba(0, 0, 0, .48) 65%, rgba(0, 0, 0, .15)),
+        url('https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=2000&q=90') center / cover no-repeat;
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: var(--width);
+      margin: auto;
+    }
+
+    .hero .eyebrow {
+      display: block;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      max-width: 800px;
+      margin-bottom: 24px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(40px, 7vw, 88px);
+      font-weight: 600;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      max-width: 520px;
+      margin-bottom: 30px;
+      color: #ccc;
+      font-size: 16px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-note {
+      margin-top: 55px;
+      color: #ccc;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    /* INTRO */
+
+    .intro {
+      background: #0b0b0b;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .intro-image img {
+      width: 100%;
+      aspect-ratio: 5 / 4;
+      object-fit: cover;
+    }
+
+    .intro-content .eyebrow {
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .intro-content h2 {
+      margin-bottom: 24px;
+    }
+
+    .intro-content p {
+      margin-bottom: 18px;
+      color: var(--muted);
+    }
+
+    .intro-content .btn {
+      margin-top: 15px;
+    }
+
+    /* VEHICLES */
+
+    .vehicles {
+      background: var(--bg);
+    }
+
+    .vehicle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .vehicle-card {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid #292929;
+      background: var(--panel);
+      transition: transform .3s, border-color .3s;
+    }
+
+    .vehicle-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .vehicle-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .vehicle-info {
+      padding: 23px;
+    }
+
+    .vehicle-info .category {
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .vehicle-info h3 {
+      margin: 10px 0;
+      font-size: 23px;
+    }
+
+    .vehicle-info p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .vehicle-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 20px 0;
+      padding: 15px 0;
+      border-top: 1px solid #292929;
+      border-bottom: 1px solid #292929;
+      color: #ddd;
+      font-size: 11px;
+    }
+
+    .vehicle-info .btn {
+      width: 100%;
+    }
+
+    /* FEATURE BANNER */
+
+    .feature {
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, .9), rgba(0, 0, 0, .35)),
+        url('https://images.unsplash.com/photo-1617531653332-bd46c24f2068?auto=format&fit=crop&w=1800&q=85') center / cover no-repeat;
+    }
+
+    .feature-content {
+      max-width: 700px;
+    }
+
+    .feature-content .eyebrow {
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .feature-content h2 {
+      margin-bottom: 20px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(30px, 5vw, 60px);
+    }
+
+    .feature-content p {
+      margin-bottom: 28px;
+      color: #ddd;
+    }
+
+    /* SPECIFICATIONS */
+
+    .specs {
+      background: #0b0b0b;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+    }
+
+    .spec-item {
+      padding: 30px 20px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .spec-item strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gold);
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(22px, 3vw, 34px);
+    }
+
+    .spec-item span {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* GALLERY */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-auto-rows: 230px;
+      gap: 14px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      background: #151515;
+    }
+
+    .gallery-item.tall {
+      grid-row: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: #0b0b0b;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+    }
+
+    .contact-content h2 {
+      margin: 15px 0 20px;
+    }
+
+    .contact-content>p {
+      margin-bottom: 25px;
+      color: var(--muted);
+    }
+
+    .contact-detail {
+      padding: 18px 0;
+      border-bottom: 1px solid #292929;
+    }
+
+    .contact-detail strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .contact-detail span {
+      color: #ddd;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-form {
+      padding: 30px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+    }
+
+    .contact-form h3 {
+      margin-bottom: 22px;
+      font-size: 25px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      color: #ddd;
+      font-size: 12px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid #333;
+      border-radius: 0;
+      outline: none;
+      background: #080808;
+      color: white;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--border);
+      background: #000;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-inner p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-inner a {
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    /* MOBILE WHATSAPP */
+
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border: 1px solid #25d366;
+      border-radius: 3px;
+      background: #25d366;
+      color: #000;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 0 5px 25px #0008;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 900px) {
+      .container {
+        width: calc(100% - 40px);
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .navbar {
+        min-height: 72px;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links a {
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 620px;
+        background-position: 60% center;
+      }
+
+      .intro-grid {
+        gap: 30px;
+      }
+
+      .vehicle-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .spec-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 200px;
+      }
+
+      .contact-grid {
+        gap: 25px;
+      }
+
+      .contact-form {
+        padding: 22px;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 680px) {
+      html {
+        scroll-padding-top: 70px;
+      }
+
+      .container {
+        width: calc(100% - 36px);
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .navbar {
+        min-height: 68px;
+      }
+
+      .logo {
+        font-size: 16px;
+        letter-spacing: 1px;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 68px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1001;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+        height: calc(100vh - 68px);
+        height: calc(100dvh - 68px);
+        padding: 20px 24px 35px;
+        overflow-y: auto;
+        background: #000;
+        border-top: 1px solid var(--border);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(100%);
+        transition: transform .25s ease, opacity .25s ease, visibility .25s ease;
+      }
+
+      .nav-links.open {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 17px 0;
+        border-bottom: 1px solid #222;
+        color: white;
+        font-size: 15px;
+      }
+
+      .nav-links .btn {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .hero {
+        min-height: 570px;
+        min-height: min(700px, calc(100svh - 68px));
+        padding: 65px 0;
+        background-position: 57% center;
+      }
+
+      .hero h1 {
+        font-size: clamp(36px, 10vw, 58px);
+        letter-spacing: -1px;
+        overflow-wrap: anywhere;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .hero-note {
+        margin-top: 35px;
+        font-size: 9px;
+        letter-spacing: 1px;
+      }
+
+      .intro-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+      }
+
+      .intro-image {
+        order: 1;
+      }
+
+      .intro-content {
+        order: 2;
+      }
+
+      .intro-image img {
+        aspect-ratio: 5 / 4;
+      }
+
+      .vehicle-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .vehicle-card img {
+        aspect-ratio: 16 / 10;
+      }
+
+      .vehicle-info {
+        padding: 20px;
+      }
+
+      .feature {
+        background-position: 60% center;
+      }
+
+      .feature-content h2 {
+        font-size: clamp(29px, 8vw, 44px);
+      }
+
+      .spec-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .spec-item {
+        padding: 22px 10px;
+      }
+
+      .spec-item strong {
+        font-size: 23px;
+      }
+
+      .spec-item span {
+        font-size: 9px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: clamp(125px, 38vw, 210px);
+        gap: 8px;
+      }
+
+      .gallery-item.tall {
+        grid-row: span 2;
+      }
+
+      .contact-form {
+        padding: 20px 16px;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        font-size: 16px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .whatsapp {
+        right: 12px;
+        bottom: 12px;
+        min-height: 44px;
+        padding: 10px 14px;
+        font-size: 11px;
+      }
+    }
+
+    /* VERY SMALL PHONES */
+
+    @media (max-width: 380px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .logo {
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: 35px;
+      }
+
+      .spec-item {
+        padding: 18px 7px;
+      }
+
+      .gallery-grid {
+        grid-auto-rows: 120px;
+      }
+
+      .contact-form {
+        padding: 17px 12px;
+      }
+
+      .whatsapp {
+        right: 9px;
+        bottom: 9px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="#home">NEXORA <span>MOTORS</span></a>
+
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#vehicles">Vehicles</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#vehicles">Explore Cars</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <span class="eyebrow">Driven by excellence</span>
+        <h1>THE ART OF<br><span>DRIVING</span> LUXURY.</h1>
+        <p>
+          Discover exceptional automobiles, outstanding performance,
+          and timeless design. Welcome to a higher standard of motoring.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#vehicles" class="btn">Explore Collection</a>
+          <a href="#contact" class="btn btn-outline">Contact Our Team</a>
+        </div>
+
+        <p class="hero-note">PRECISION · PERFORMANCE · PRESTIGE</p>
+      </div>
+    </section>
+
+    <section class="intro" id="about">
+      <div class="container intro-grid">
+        <div class="intro-image">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1000&q=85"
+            alt="Luxury sports car" loading="lazy">
+        </div>
+
+        <div class="intro-content">
+          <span class="eyebrow">Welcome to Nexora</span>
+          <h2>MORE THAN A CAR.<br>A STATEMENT.</h2>
+          <p>
+            We celebrate automotive design, engineering, and the
+            feeling of being behind the wheel of something special.
+          </p>
+          <p>
+            Explore our featured vehicles and contact our team
+            for information about availability, specifications,
+            and viewing arrangements.
+          </p>
+          <a href="#contact" class="btn">Talk to Our Team</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="vehicles" id="vehicles">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Featured collection</span>
+          <h2>MEET THE MACHINES</h2>
+          <p>
+            Explore a selection of performance-inspired vehicles.
+            Contact us for current availability and pricing.
+          </p>
+        </div>
+
+        <div class="vehicle-grid">
+          <article class="vehicle-card">
+            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=900&q=85"
+              alt="BMW luxury vehicle" loading="lazy">
+            <div class="vehicle-info">
+              <span class="category">Luxury sedan</span>
+              <h3>BMW 5 Series</h3>
+              <p>Elegant design with a driver-focused interior.</p>
+              <div class="vehicle-meta">
+                <span>Automatic</span>
+                <span>Luxury</span>
+                <span>Performance</span>
+              </div>
+              <a href="#contact" class="btn enquiry-btn" data-car="BMW 5 Series">Enquire Now</a>
+            </div>
+          </article>
+
+          <article class="vehicle-card">
+            <img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?auto=format&fit=crop&w=900&q=85"
+              alt="BMW performance car" loading="lazy">
+            <div class="vehicle-info">
+              <span class="category">Performance</span>
+              <h3>BMW M Series</h3>
+              <p>Bold styling and performance-inspired character.</p>
+              <div class="vehicle-meta">
+                <span>Sport</span>
+                <span>Dynamic</span>
+                <span>Premium</span>
+              </div>
+              <a href="#contact" class="btn enquiry-btn" data-car="BMW M Series">Enquire Now</a>
+            </div>
+          </article>
+
+          <article class="vehicle-card">
+            <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=85"
+              alt="Luxury sports car" loading="lazy">
+            <div class="vehicle-info">
+              <span class="category">Sports coupe</span>
+              <h3>Luxury Coupe</h3>
+              <p>Striking proportions and a sporty road presence.</p>
+              <div class="vehicle-meta">
+                <span>Sport</span>
+                <span>Premium</span>
+                <span>Coupe</span>
+              </div>
+              <a href="#contact" class="btn enquiry-btn" data-car="Luxury Coupe">Enquire Now</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature">
+      <div class="container feature-content">
+        <span class="eyebrow">Performance meets elegance</span>
+        <h2>MADE FOR THOSE<br>WHO MOVE DIFFERENTLY.</h2>
+        <p>
+          Every detail matters. Explore vehicles that bring together
+          distinctive styling, comfort, and an engaging drive.
+        </p>
+        <a href="#contact" class="btn">Start Your Enquiry</a>
+      </div>
+    </section>
+
+    <section class="specs">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">The Nexora standard</span>
+          <h2>WHAT DRIVES US</h2>
+        </div>
+
+        <div class="spec-grid">
+          <div class="spec-item">
+            <strong>01</strong>
+            <span>Exceptional Design</span>
+          </div>
+          <div class="spec-item">
+            <strong>02</strong>
+            <span>Driving Pleasure</span>
+          </div>
+          <div class="spec-item">
+            <strong>03</strong>
+            <span>Premium Comfort</span>
+          </div>
+          <div class="spec-item">
+            <strong>04</strong>
+            <span>Personal Service</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">The visual experience</span>
+          <h2>BUILT TO BE SEEN</h2>
+          <p>A closer look at automotive design and detail.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item tall">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85"
+              alt="Sports car design" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85"
+              alt="Luxury car exterior" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=85"
+              alt="Performance car" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=85"
+              alt="Premium automobile" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=900&q=85"
+              alt="Car on the road" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-content">
+          <span class="eyebrow">Let's talk cars</span>
+          <h2>YOUR NEXT DRIVE<br>STARTS HERE.</h2>
+          <p>
+            Interested in a vehicle? Send an enquiry and our team
+            can help you discuss availability and arrange a viewing.
+          </p>
+
+          <div class="contact-detail">
+            <strong>Location</strong>
+            <span>Your showroom address goes here</span>
+          </div>
+
+          <div class="contact-detail">
+            <strong>Phone</strong>
+            <span>Replace with your business phone number</span>
+          </div>
+
+          <div class="contact-detail">
+            <strong>Opening hours</strong>
+            <span>Monday – Saturday · Confirm with our team</span>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h3>Vehicle Enquiry</h3>
+
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" placeholder="Enter your name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" placeholder="Enter your phone number" required>
+          </div>
+
+          <div class="form-group">
+            <label for="car">Vehicle of interest</label>
+            <select id="car" name="car" required>
+              <option value="">Choose a vehicle</option>
+              <option>BMW 5 Series</option>
+              <option>BMW M Series</option>
+              <option>Luxury Coupe</option>
+              <option>Other vehicle</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what you would like to know"></textarea>
+          </div>
+
+          <button class="btn" type="submit">Send WhatsApp Enquiry</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="logo" href="#home">NEXORA <span>MOTORS</span></a>
+      <p>© <span id="year"></span> Nexora Motors. All rights reserved.</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <a class="whatsapp" id="whatsappLink" href="#contact">
+    WhatsApp Us
+  </a>
+
+  <script>
+    /* MOBILE NAVIGATION */
+
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.nav-links');
+
+    function closeMenu() {
+      navigation.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open navigation');
+      menuButton.textContent = '☰';
+    }
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = navigation.classList.toggle('open');
+
+      document.body.classList.toggle('menu-open', isOpen);
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute(
+        'aria-label',
+        isOpen ? 'Close navigation' : 'Open navigation'
+      );
+      menuButton.textContent = isOpen ? '×' : '☰';
+    });
+
+    navigation.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 680) closeMenu();
+    });
+
+    /* FOOTER YEAR */
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* SELECT VEHICLE WHEN ENQUIRING */
+
+    document.querySelectorAll('.enquiry-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        document.getElementById('car').value = button.dataset.car;
+      });
+    });
+
+    /* WHATSAPP CONFIGURATION
+       Replace this placeholder with the business's real number.
+       Use country code and digits only, without + or spaces.
+       Example Nigerian number format: 2348012345678
+    */
+
+    const WHATSAPP_NUMBER = '2348051669399'; // Replace with your business WhatsApp number
+
+    function openWhatsApp(message) {
+      if (WHATSAPP_NUMBER === '') {
+        alert('Please replace WHATSAPP_NUMBER in the HTML with your real business WhatsApp number.');
+        return;
+      }
+
+      const url =
+        'https://wa.me/' +
+        WHATSAPP_NUMBER +
+        '?text=' +
+        encodeURIComponent(message);
+
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+
+    document.getElementById('whatsappLink').addEventListener('click', event => {
+      event.preventDefault();
+      openWhatsApp('Hello, I would like to enquire about your vehicles.');
+    });
+
+    /* CONTACT FORM -> WHATSAPP */
+
+    document.getElementById('contactForm').addEventListener('submit', event => {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const car = document.getElementById('car').value;
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !phone || !car) {
+        alert('Please complete your name, phone number, and vehicle selection.');
+        return;
+      }
+
+      const enquiry =
+        'Hello Nexora Motors! I would like to make a vehicle enquiry.\n\n' +
+        'Name: ' + name + '\n' +
+        'Phone: ' + phone + '\n' +
+        'Vehicle: ' + car + '\n' +
+        'Message: ' + (message || 'Please share more information.');
+
+      openWhatsApp(enquiry);
+    });
+  </script>
+
+</body>
+
+</html>
